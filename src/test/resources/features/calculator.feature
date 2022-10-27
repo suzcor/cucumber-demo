@@ -1,3 +1,4 @@
+@Regression
 Feature: Addition
 
   As a calculator user

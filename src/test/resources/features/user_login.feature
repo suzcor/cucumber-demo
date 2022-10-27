@@ -1,3 +1,4 @@
+@Smoke @Regression
 Feature: User login
 
   As a website user

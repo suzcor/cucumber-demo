@@ -4,20 +4,24 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.not;
 
+import io.cucumber.java.Before;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import io.cucumber.spring.CucumberContextConfiguration;
-import org.springframework.boot.test.context.SpringBootTest;
 
-@CucumberContextConfiguration
-@SpringBootTest
 public class StepDefinitions {
   private final String password = "password1";
-  private String currentPage = "/home";
-  private int firstNumber = 0;
-  private int secondNumber = 0;
+  private String currentPage;
+  private int firstNumber;
+  private int secondNumber;
+
+  @Before
+  public void setup() {
+    currentPage = "/home";
+    firstNumber = 0;
+    secondNumber = 0;
+  }
 
   @Given("I am on the login page")
   public void iAmOnTheLoginPage() {
@@ -32,7 +36,7 @@ public class StepDefinitions {
   @And("I enter my password {string}")
   public void iEnterMyPassword(String arg0) {
     System.out.printf("Entering password %s\n", arg0);
-    authenticateUser(this.password.equals(arg0));
+    authenticateUser(password.equals(arg0));
   }
 
   @Then("I am logged in")
@@ -74,10 +78,10 @@ public class StepDefinitions {
   }
 
   private void setNumber(int arg0) {
-    if (this.firstNumber == 0) {
-      this.firstNumber = arg0;
+    if (firstNumber == 0) {
+      firstNumber = arg0;
     } else {
-      this.secondNumber = arg0;
+      secondNumber = arg0;
     }
   }
 }

@@ -10,11 +10,9 @@ import net.masterthought.cucumber.ReportBuilder;
 import net.masterthought.cucumber.presentation.PresentationMode;
 import net.masterthought.cucumber.sorting.SortingMethod;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
 import net.masterthought.cucumber.Configuration;
 
-@SpringBootTest
-class CucumberDemoApplicationTests {
+class ReportConfiguration {
 
   @Test
   void contextLoads() {
